@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">单词本</string>
+    <string name="title_activity_localwords">生词本</string>
+    <string name="title_activity_addword">添加生词</string>
+    <string name="title_activity_word_detail">word_detail</string>
+
+</resources>
