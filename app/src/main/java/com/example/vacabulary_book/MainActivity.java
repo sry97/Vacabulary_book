@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
     private String phonetic = "获取失败";
     private String trans = "获取失败";
 
-    DEST dest =new DEST();
+    //DEST dest =new DEST();
 
     public boolean onCreateOptionsMenu(Menu menu) {//将资源菜单文件加载到主界面中
         MenuInflater inflater = getMenuInflater();
@@ -65,8 +65,9 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent_newword);
                 break;
             case R.id.english_news:
-                Intent intent_news = new Intent(Intent.ACTION_VIEW);
-                intent_news.setData(Uri.parse("http://www.chinadaily.com.cn/"));
+                //Intent intent_news = new Intent(Intent.ACTION_VIEW);
+                //intent_news.setData(Uri.parse("http://www.chinadaily.com.cn/"));
+                Intent intent_news = new Intent(MainActivity.this, EnglishNews.class);
                 startActivity(intent_news);
                 break;
             case R.id.owner:
@@ -120,6 +121,7 @@ public class MainActivity extends AppCompatActivity {
                                 add_word=(EditText)v1.findViewById(R.id.add_word);
                                 add_phonetic=(EditText)v1.findViewById(R.id.add_phonetic);
                                 add_trans=(EditText)v1.findViewById(R.id.add_trans);
+                                DEST dest = new DEST();
                                 dest.setM_word(add_word.getText().toString());
                                 dest.setM_phonetic(add_phonetic.getText().toString());
                                 dest.setM_translate(add_trans.getText().toString());
@@ -143,11 +145,12 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this,"请先查询单词后在点击保存",Toast.LENGTH_SHORT).show();
                     return ;
                 }
-                dest.setM_word(s_word.getText().toString());
-                dest.setM_phonetic(s_phonetic.getText().toString());
-                dest.setM_translate(s_trans.getText().toString());
-                dest.save();
-                if(dest.save()){
+                DEST destt = new DEST();
+                destt.setM_word(s_word.getText().toString());
+                destt.setM_phonetic(s_phonetic.getText().toString());
+                destt.setM_translate(s_trans.getText().toString());
+                destt.save();
+                if (destt.save()) {
                     Toast.makeText(MainActivity.this, "添加成功", Toast.LENGTH_SHORT).show();
                 }
                 else {
@@ -162,6 +165,10 @@ public class MainActivity extends AppCompatActivity {
         public WordTask(){
             word = input.getText().toString();
             url = url+ word;
+        }
+
+        public WordTask(String webword) {
+            url = url + webword;
         }
         @Override
         protected Object doInBackground(Object[] params) {

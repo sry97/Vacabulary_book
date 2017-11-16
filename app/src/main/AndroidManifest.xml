@@ -15,9 +15,7 @@
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
-                <data android:scheme="http" />
             </intent-filter>
         </activity>
         <activity
@@ -27,7 +25,11 @@
         <activity
             android:name=".word_detail"
             android:label="@string/title_activity_word_detail"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".wordContentActivity_danye" />
+        <activity
+            android:name=".EnglishNews"
+            android:label="@string/title_activity_english_news"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
-
 </manifest>

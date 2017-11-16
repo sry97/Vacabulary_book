@@ -19,7 +19,7 @@ import org.litepal.crud.DataSupport;
 
 import java.util.List;
 
-public class word_detail extends AppCompatActivity {
+public class word_detail extends AppCompatActivity {//进行改进后用不到的类。。。
     Button btn_change;
     Button btn_delete;
     TextView word_change;
